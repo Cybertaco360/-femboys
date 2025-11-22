@@ -1,0 +1,124 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  overflow: hidden; /* remove page scrollbars */
+}
+.app {
+  display: flex;
+  height: 100vh;
+}
+.left-pane {
+  /* was fixed 93.75% -> make flexible */
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  padding: 0;
+  box-sizing: border-box;
+}
+.image-frame {
+  width: 100%;
+  height: 100%;
+  background: #222;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.image-frame img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  /* image naturally grows with wider container */
+}
+.right-pane {
+  /* was 6.25% -> fixed usable width */
+  flex: 0 0 340px;
+  min-width: 300px;
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #333;
+  background: #1b1b1b;
+  color: #eee;
+}
+.config {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  background: #202020;
+  border-bottom: 1px solid #333;
+}
+.config label {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.config input {
+  background: #2a2a2a;
+  border: 1px solid #444;
+  color: #fff;
+  padding: 4px 6px;
+  font-size: 12px;
+}
+.messages {
+  flex: 1;
+  overflow-y: auto; /* changed from hidden */
+  padding: 10px;
+  font-size: 13px;
+}
+.message {
+  margin: 0 0 10px;
+  line-height: 1.3;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.message.user { color: #6cb4ff; }
+.message.model { color: #a6f3a6; }
+.input-row {
+  display: flex;
+  gap: 6px;
+  padding: 10px;
+  border-top: 1px solid #333;
+  background: #202020;
+}
+.input-row input {
+  flex: 1;
+  background: #2a2a2a;
+  border: 1px solid #444;
+  color: #fff;
+  padding: 8px;
+  font-size: 13px;
+}
+.input-row button {
+  background: #4760ff;
+  border: none;
+  color: #fff;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.input-row button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+/* Responsive: stack vertically on narrow screens */
+@media (max-width: 800px) {
+  .app {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+  .left-pane,
+  .right-pane {
+    flex: none;
+    width: 100%;
+  }
+  .left-pane { height: 55vh; }
+  .right-pane { height: 45vh; max-width: 100%; }
+}

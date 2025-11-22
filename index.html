@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"> <!-- added -->
+<title>PAD Project</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <div class="left-pane">
+    <div class="image-frame">
+      <img src="PAD.png" alt="PAD" />
+    </div>
+  </div>
+  <div class="right-pane">
+    <div id="messages" class="messages"></div>
+    <form id="chatForm" class="input-row">
+      <input id="userInput" type="text" placeholder="Type message..." autocomplete="off">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</div>
+<script src="chat.js"></script>
+</body>
+</html>
