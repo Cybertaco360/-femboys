@@ -12,6 +12,9 @@
     "resolveJsonModule": true,
     "types": ["node", "electron"],
     "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "outDir": "dist"
   },
   "include": ["src"],
