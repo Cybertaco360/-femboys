@@ -2,19 +2,37 @@
   "name": "pad-electron",
   "version": "0.1.0",
   "private": true,
-  "main": "main.js",
+  "main": "dist/electron/main.js",
   "type": "commonjs",
   "scripts": {
-    "start": "electron .",
-    "dev": "electron ."
+  "dev:renderer": "vite",
+  "dev:electron": "tsc -w --preserveWatchOutput",
+  "dev": "tsc && ELECTRON_DEV=1 concurrently -k \"npm:dev:*\" \"wait-on http://localhost:5173 && electron .\"",
+    "build:renderer": "vite build",
+    "build:electron": "tsc",
+    "build": "npm run build:renderer && npm run build:electron",
+    "start": "electron ."
   },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-markdown": "^9.0.3"
   },
   "devDependencies": {
-    "electron": "^31.2.0"
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "concurrently": "^8.2.2",
+    "electron": "^31.2.0",
+    "typescript": "^5.6.3",
+    "vite": "^5.0.11",
+    "wait-on": "^7.0.2"
   }
 }

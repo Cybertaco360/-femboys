@@ -1,3 +1,4 @@
+// Deprecated: functionality migrated to React components in src/renderer/App.tsx
 const messagesEl = document.getElementById('messages');
 const form = document.getElementById('chatForm');
 const userInput = document.getElementById('userInput');
